@@ -1,0 +1,357 @@
+body {
+    /* 因为根据手机端显示 所有的盒子都是铺满页面 因此直接给body100% */
+    width: 100%;
+    /* 但是不能太随意伸缩 因此要加上最大和最小的限制 */
+    max-width: 640px;
+    min-width: 320px;
+    /* 让内容居中显示 */
+    margin: 0 auto;
+    /* 设置显示的字体 */
+    font-family: -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    /* background-color: #ccc; */
+    line-height: 1.5;
+    /* height: 2000px; */
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    line-height: 0;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+
+
+/* ul存在内外边距 会导致在移动端显示时候 无法和页面边对齐 因此要清除内外边距 */
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 图片有空白缝隙 需要去除 */
+
+img {
+    vertical-align: middle;
+}
+
+ul li {
+    list-style: none;
+}
+
+.app {
+    height: 45px;
+}
+
+.app ul li {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    background-color: #333;
+    text-align: center;
+    color: #fff;
+}
+
+
+/* 结构伪类选择器 */
+
+.app ul li:nth-child(1) {
+    width: 8%;
+}
+
+.app ul li:nth-child(1) img {
+    /* 因为移动端的像素比的原因 插入的图片进行了倍图处理  因此需要手动缩小 */
+    width: 10px;
+}
+
+
+/* ❌盒子 */
+
+.app ul li:nth-child(2) {
+    width: 10%;
+}
+
+
+/* 京东图片盒子 */
+
+.app ul li:nth-child(2) img {
+    /* 因为移动端的像素比的原因 插入的图片进行了倍图处理  因此需要手动缩小 */
+    width: 30px;
+    /* 图片默认和文字的基线对齐 要修改以下 才能实现图片的居中对齐 */
+    vertical-align: middle;
+}
+
+
+/* 请在app内部查看盒子 */
+
+.app ul li:nth-child(3) {
+    width: 57%;
+}
+
+
+/* 立即打开盒子 */
+
+.app ul li:nth-child(4) {
+    width: 25%;
+    background-color: #f63515;
+}
+
+
+/* header  部分结束 */
+
+
+/* search部分开始 */
+
+
+/* 搜索部分所在的大盒子 */
+
+.search-wrap {
+    /* 防止孩子因为浮动而不占有位置 */
+    height: 44px;
+    width: 100%;
+    /* 采用固定定位 使得该部分浮在banner上面  浮动起来之后要给该元素宽度*/
+    position: fixed;
+    /* 解决search的margin-top引起的外边距合并 */
+    overflow: hidden;
+    min-width: 320px;
+    max-width: 600px;
+    z-index: 999;
+}
+
+
+/* 按钮图标 */
+
+.search-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+    /* background-color: pink; */
+}
+
+
+/* 伪元素选择器 给search-btn添加内部图片 */
+
+.search-btn::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 18px;
+    background: url(../images/s-btn.png)no-repeat;
+    /* 因为移动端的像素比问题 因此背景图片经过2倍处理 此处需要手动缩背景图片的大小 */
+    background-size: 20px 18px;
+    margin: 14px 0 0 15px;
+}
+
+
+/* 登录 */
+
+.search-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 44px;
+    /* background-color: pink; */
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+    font-size: 14px;
+}
+
+
+/* 白色的大搜索框 */
+
+.search {
+    /* 该标签为标准流占满了整个父级盒子 这样才能实现在拉伸时候的自适应伸缩*/
+    height: 30px;
+    background-color: #fff;
+    margin: 0 50px;
+    position: relative;
+    border-radius: 15px;
+    margin-top: 7px;
+}
+
+
+/* 京东小图标 */
+
+.jd-icon {
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    top: 8px;
+    left: 13px;
+    background-color: pink;
+    background: url(../images/jd.png) no-repeat;
+    background-size: 20px 15px;
+}
+
+
+/* 伪元素选择器 在京东后面添加一个竖线 */
+
+.jd-icon::after {
+    position: absolute;
+    top: 0px;
+    right: -8px;
+    content: "";
+    display: block;
+    width: 1px;
+    height: 15px;
+    background-color: #ccc;
+}
+
+
+/* 小放大镜 */
+
+.sou {
+    position: absolute;
+    top: 8px;
+    left: 46px;
+    width: 18px;
+    height: 15px;
+    background-color: pink;
+    /* 注意此处的精灵图也是经过二倍处理的图  因此要进行手动缩小 注意定位  */
+    background: url(../images/jd-sprites.png) no-repeat -81px 0;
+    background-size: 200px;
+}
+
+
+/* 主体部分开始 */
+
+
+/* banner滑动图图片部分 */
+
+.slider img {
+    width: 100%;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 复制的是wiper的样式 */
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+
+/* 品牌日部分 */
+
+
+/* 给盒子做圆角 */
+
+.brand {
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+
+/* brand盒子里面有三个图片,设置每个图片盒子的大小 */
+
+.brand div {
+    width: 33.3%;
+    float: left;
+}
+
+.brand div img {
+    width: 100%;
+}
+
+
+/* nav部分开始 */
+
+
+/* nav盒子里面装10个a 五个一行 每个占20% */
+
+nav {
+    padding-top: 5px;
+}
+
+nav a {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+
+/* 移动端的图片要倍数处理 手动缩小 */
+
+nav a img {
+    width: 40px;
+    margin: 10px 0;
+}
+
+
+/* 图片底下的文字 */
+
+nav a span {
+    /* 使得文字显示在图片下方  */
+    display: block;
+}
+
+
+/* 新闻部份 */
+
+
+/* 为了使得news的margin-top有效 需要给nav去除浮动 */
+
+.news {
+    margin-top: 20px;
+}
+
+
+/* 给图片设置宽度 使其等于自身的盒子的宽度 按百分比显示 */
+
+.news img {
+    width: 100%;
+}
+
+
+/* 让三个a图片能显示在同意一行上 */
+
+.news a {
+    float: left;
+    /* 将a盒子修改为css3盒子模型 那么添加border之后不会撑开盒子导致排列不对 */
+    box-sizing: border-box;
+}
+
+.news a:nth-child(1) {
+    width: 50%;
+}
+
+.news a:nth-child(2) {
+    width: 25%;
+    border-left: 1px solid #ccc;
+}
+
+.news a:nth-child(3) {
+    width: 25%;
+    border-left: 1px solid #ccc;
+}
